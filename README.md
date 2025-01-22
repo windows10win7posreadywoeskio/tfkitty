@@ -17,5 +17,6 @@ good question!! well, it does not, the most ive been able to get so far is joini
 
 * its a miracle this thing works at all
 * don't expect much given how hackfucked the entity networking is
+![image](https://github.com/user-attachments/assets/80e9d032-9eaf-4dc7-b9ef-4ea20a1cf5ad)
 
 <sup><sub>🐈</sub></sup>
