@@ -17,6 +17,7 @@
 #### so um, can we run plugins now?
 
 indeed, we can! you can find my hl2sdk and sm fork made compatible for this build [here](https://github.com/eepycats/hl2sdk-x360) and [here](https://github.com/eepycats/sourcemod-x360)
+![smrunning](https://github.com/user-attachments/assets/d5dab0f5-bb09-4548-aa47-4e769a3c437b)
 
 ### for console players
 
@@ -99,5 +100,6 @@ the usage is simple, pass the console ip through command line or set the console
 
 - all the nice people who supported me while making this! big thanks!!
 
+![itworks](https://github.com/user-attachments/assets/b38d8f5f-d519-4583-b5b6-1a6a08d42c96)
 
 <sup><sub>🐈</sub></sup>
