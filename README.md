@@ -94,6 +94,8 @@ the usage is simple, pass the console ip through command line or set the console
 
 - wanderer - helped with entity networking stuff
 
+- weezer - spent hours debugging with me with his consoles, reintalled the sdk probably like 10 times too
+
 - dashlaunch (i stole the undocumented flag from its code)
 
 - the SourceMod and MetaMod: Source project by AlliedModders (the sendtable dumper is pretty much a rewrite of theirs)
