@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35209.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kitty", "kittytoolscs\kitty.csproj", "{BEA10D29-F732-469D-9247-8659A97922EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEA10D29-F732-469D-9247-8659A97922EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA10D29-F732-469D-9247-8659A97922EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA10D29-F732-469D-9247-8659A97922EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA10D29-F732-469D-9247-8659A97922EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA408E73-D8FC-4F4E-99EC-FE503132F65D}
+	EndGlobalSection
+EndGlobal

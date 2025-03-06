@@ -1,9 +1,10 @@
 #include "server_plugin.hpp"
 #include "dt.hpp"
 #include "mem.hpp"
-#include "safetyhook.hpp"
 #include "init.hpp"
+#include <rpcndr.h>
 #include <string>
+#include <format>
 using namespace ssdk;
 using mem::byte_patch;
 using mem::signature_scanner;
@@ -26,7 +27,9 @@ class kittyplugin : public server_plugin {
 			static byte_patch no_challenge(signature_scanner::scan(engine_module, "8B 44 24 ? 83 EC ? 53 8B D9 8D 48"), { 0x31, 0xC0, 0x40, 0xC2, 0x20,0x00 });
 			static byte_patch stringtables_r(signature_scanner::scan(engine_module, "6A 20 89 4C 24 ? E8 ? ? ? ? 8B 54 24"), { 0x6A,0x10 });
 			static byte_patch stringtables_w(signature_scanner::scan(engine_module, "6A 20 89 47 ? E8"), { 0x6A,0x10 });
-			static byte_patch ignore_tables(signature_scanner::scan(engine_module, "74 ? E8 ? ? ? ? 39 86"), { 0xEB });
+			static byte_patch baseline_patch(signature_scanner::scan(engine_module, "0F 84 ? ? ? ? BA ? ? ? ? 39 15"), {0x90, 0x90, 0x90, 0x90, 0x90, 0x90});
+			static byte_patch always_send_tables(signature_scanner::scan(engine_module, "74 ? 68 ? ? ? ? FF 15 ? ? ? ? 8B 8E"), {0x90,0x90});
+
 		}
 		catch (std::exception& ex) {
 			MessageBoxA(nullptr, std::format("sigscan failed: {}", ex.what()).c_str() , "kittyhook", 0);
@@ -53,7 +56,7 @@ class kittyplugin : public server_plugin {
 			HWND main_window{};
 			EnumWindows([](HWND hWnd, LPARAM param) {
 				wchar_t classname[1024];
-				static std::wstring valve001(L"Valve001");
+				static const std::wstring valve001(L"Valve001");
 				static DWORD mypid = GetCurrentProcessId();
 				DWORD pid;
 				GetWindowThreadProcessId(hWnd, &pid);

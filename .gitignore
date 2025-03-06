@@ -1,0 +1,9 @@
+plugin/build/
+plugin/.xmake/
+plugin/dist/tf/addons/kittyhook.dll
+plugin/.cache/
+plugin/compile_commands.json
+plugin/.vscode/
+kitty/.vs/
+kitty/kittytoolscs/obj/
+kitty/dist/
