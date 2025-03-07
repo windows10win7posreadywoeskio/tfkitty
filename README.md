@@ -14,6 +14,8 @@
 
 - host a server or connect to one
 
+- if you want to join your xbox from a pc, just pass -ignorecrc and connect to it! (remember to set sv_sendtables 1 on the xbox **BEFORE** starting the server tho)
+
 #### so um, can we run plugins now?
 
 indeed, we can! you can find my hl2sdk and sm fork made compatible for this build [here](https://github.com/eepycats/hl2sdk-x360) and [here](https://github.com/eepycats/sourcemod-x360)

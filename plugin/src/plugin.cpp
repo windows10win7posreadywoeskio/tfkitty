@@ -2,6 +2,7 @@
 #include "dt.hpp"
 #include "mem.hpp"
 #include "init.hpp"
+#include <processenv.h>
 #include <rpcndr.h>
 #include <string>
 #include <format>
@@ -20,6 +21,7 @@ class kittyplugin : public server_plugin {
 
 	virtual bool Load(pfnCreateInterface interfaceFactory, pfnCreateInterface gameServerFactory) override{
 		auto engine_module = mem::module("engine.dll");
+		std::wstring cmdline = GetCommandLineW();
 
 		bool client = GetModuleHandle(L"client.dll") ? true : false;
 
@@ -29,7 +31,9 @@ class kittyplugin : public server_plugin {
 			static byte_patch stringtables_w(signature_scanner::scan(engine_module, "6A 20 89 47 ? E8"), { 0x6A,0x10 });
 			static byte_patch baseline_patch(signature_scanner::scan(engine_module, "0F 84 ? ? ? ? BA ? ? ? ? 39 15"), {0x90, 0x90, 0x90, 0x90, 0x90, 0x90});
 			static byte_patch always_send_tables(signature_scanner::scan(engine_module, "74 ? 68 ? ? ? ? FF 15 ? ? ? ? 8B 8E"), {0x90,0x90});
-
+			if (cmdline.find(L"-ignorecrc") != std::wstring::npos){
+				static byte_patch ignore_crc = byte_patch(signature_scanner::scan(engine_module, "75 ? 56 68 ? ? ? ? 6A"), {0xEB});
+			}
 		}
 		catch (std::exception& ex) {
 			MessageBoxA(nullptr, std::format("sigscan failed: {}", ex.what()).c_str() , "kittyhook", 0);
