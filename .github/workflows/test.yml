@@ -1,5 +1,7 @@
 name: build
 
+# this shit is ai trial and error fr
+
 on:
   push:
     branches:
@@ -29,8 +31,9 @@ jobs:
           cd ./plugin
           xmake              
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+      - name: artifact
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: ehh # Name of the artifact
           path: ./plugin/dist/ # Path to the build files
+          
