@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include "mem.hpp"
 #include <fstream>
+#include <format> // DOING THIS MAKES IT WORK FOR SOME REASON??????????
 
 namespace dt {
 	void destroy_member(SendProp* sendTablePtr, int* sendTableLengthPtr, const char* propname) {
